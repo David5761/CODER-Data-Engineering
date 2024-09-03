@@ -94,7 +94,7 @@ conn.close()
 ## TAREAS
 
 default_args={
-    'owner': 'JeseSalazar',
+    'owner': 'DavidToledo',
     'retries': 5,
     'retry_delay': timedelta(minutes=2) # 2 min de espera antes de cualquier re intento
 }
