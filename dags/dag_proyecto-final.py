@@ -107,12 +107,12 @@ api_dag = DAG(
         schedule_interval='@daily' 
     )
 
-task1 = BashOperator(task_id='primera_tarea',
+task1 = PythonOperator(task_id='primera_tarea',
     bash_command='echo Iniciando...'
 )
 
 
-task3 = BashOperator(
+task3 = PythonOperator(
     task_id= 'tercera_tarea',
     bash_command='echo Proceso completado...'
 )
