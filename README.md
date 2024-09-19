@@ -22,3 +22,33 @@ Este es un proyecto de Data Engineering en la cual se desarrollo todo el flujo E
 4. **Orquestación de Apache Airflow**:
    - **Configuración**: Este proceso ETL esta configurado para ejecutarse diariamente y de manera secuencial. Es decir, si hay un error en uno de las tareas, las tareas posteriores no se van a ejecutar.
    - **Ejecución manual**: En caso se requiera ejecutar de forma manual e inmmediata se necesita ingresar las credenciales de Apache Airflow y ejecutar manualmente el DAG llamado "proyecto-final_pipeline"
+
+### Resumen de las principales funciones
+- **get_connection()**: Esta función abre la conexión con la base de datos Redshift con las credenciales registradas en el archivo .env
+- **create_sql_objects**: Esta función se encarga de crear la tabla en caso no exista con los atributos predefinidos en base a los registros que va a almacenar.
+- **etl_process**: Esta función se encarga de hacer todo el proceso de extración, transformación y carga a la base de datos. Existen algunos parámetros que se podrían cambiar como el schema, entre otros.
+- **close_connection**: Por último, esta función se encarga de cerrar la conexión creada inicialmente.
+
+## Variables .env
+Se debe llenar en un archivo .env las credenciales o parámetros correctos para la conexión a Amazon Redshift y para el servicio SMTP de Airflow.
+
+Variables Amazon Redshift
+```
+REDSHIFT_USER = 
+REDSHIFT_PASSWORD = 
+REDSHIFT_HOST = 
+REDSHIFT_PORT = 
+REDSHIFT_DB = 
+```
+
+Variables Airflow - SMTP
+```
+AIRFLOW__SMTP__SMTP_HOST= 
+AIRFLOW__SMTP__SMTP_STARTTLS=
+AIRFLOW__SMTP__SMTP_SSL=
+AIRFLOW__SMTP__SMTP_USER=
+AIRFLOW__SMTP__SMTP_PASSWORD=
+AIRFLOW__SMTP__SMTP_PORT=
+AIRFLOW_VAR_SUBJECT_MAIL= 
+TO_EMAIL=
+```
